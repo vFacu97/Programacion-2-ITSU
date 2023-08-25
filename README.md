@@ -20,10 +20,10 @@
 | Desarrolladoras | Desarrolladores |
 | --------- | --------- |
 | Fiama | Alexis Vespa |
-| Ursula | Andres Korell |
+| Ursula Huck | Andres Korell |
 | Valeria Silva | Jordan Escobar de la Rosa|
 |        | Nicolas Benetti |
-|  | Rubén |
+|  | Rubén Grauberger |
 |  | Ramiro Odriozola|
 |  | Facundo Villalba |
 
