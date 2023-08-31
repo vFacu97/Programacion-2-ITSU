@@ -18,9 +18,9 @@ class Autores:
 
 
     def buscar_autor(self, nombre_buscar):
-        for autor in self.autores:
-            if autor['Nombres'] or autor['Apellido'] == nombre_buscar:
-                return autor
+        for bautor in self.autores:
+            if bautor['Nombres'] or bautor['Apellido'] == nombre_buscar:
+                return bautor
         return None
     
     def editar_autor(self, autor_encontrado):
