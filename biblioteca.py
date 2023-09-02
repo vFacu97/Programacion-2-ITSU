@@ -89,9 +89,7 @@ class main:
 menu = main()
 menu.menu_principal()
 
-#---------------clase de libros----------------
-
-
+#---------------clase de autores----------------
 class Autores:
     def __init__(self):
         self.autores = []
@@ -169,3 +167,5 @@ while True:
         break
     else:
         print("Opción inválida. Por favor, seleccione una opción válida.")
+
+#---------------- clase de libros
