@@ -86,7 +86,5 @@ class main:
                 self.menu_principal()
 
 
-
-
 menu = main()
 menu.menu_principal()
