@@ -1,18 +1,3 @@
-# Desarrollar un programa para administrar un listado de libros de una biblioteca.
-# El programa constará de tres clases:
-# Autor: clase que contendrá toda la información sobre la persona que escribió el libro.
-# atributo: nombre y apellido
-# metodo: mostrar por pantalla los datos
-# Libro: clase que contendrá toda la información del libro.
-# atributo: titulo, año, autor (con autor trabajamos con lo de arriba)
-# metodo: mostrar por pantalla los datos
-# Biblioteca: clase que contendrá todos los libros que componen la biblioteca.
-# listado de libros:
-# En el proyecto utilizará los siguientes conocimientos adquiridos:
-# Mostrar información por pantalla.
-# Lectura de información por teclado.
-# Bucles while – for.
-
 class Libros:
     def __init__(self):
         self.libros = []
