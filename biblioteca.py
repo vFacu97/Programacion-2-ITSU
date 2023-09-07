@@ -31,7 +31,11 @@ class Libros:
                     print("Título: ", titulo['titulo'])
                     print("Año: ", titulo['anio'])
                     print("Autor: ", titulo['autor'])
-                    opcion = int(input("¿Que opción desea modificar?: 1 Nombre - 2 Autor - 3 Año de Edición"))
+                    opcion = int(input("""¿Que opción desea modificar?:
+                                       1-Nombre
+                                       2-Autor
+                                       3-Año de Edición
+                                       Ingrese número de opcion: """))
                     if opcion == 1:
                         nombre = input('Ingrese nuevo nombre:')
                         self.libros[self.libros.index(titulo)]['titulo'] = nombre
@@ -47,10 +51,13 @@ class Libros:
 #-----------Comienzo clase biblioteca-----------
 class Biblioteca(Libros):
     def mostrar_libros(self):
-            for muestra in self.libros:
-                print("Titulo: ", muestra['titulo'])
-                print("Año: ", muestra['anio'])
-                print("Autor ", muestra['autor'])
+       print("________Libros registrados________")
+       for muestra in self.libros:
+            print("_____________________________")
+            print("Titulo: ", muestra['titulo'])
+            print("Año: ", muestra['anio'])
+            print("Autor: ", muestra['autor'])
+            print("_____________________________")
 
 #---------------comienzo de clase de autores----------------
 class Autores:
