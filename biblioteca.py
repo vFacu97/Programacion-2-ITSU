@@ -44,3 +44,7 @@ class Libros:
                     elif opcion == 4:
                         condicion = True
 #-----------Fin de la clase libros--------------
+
+
+class Autores:
+    pass
