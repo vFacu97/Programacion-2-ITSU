@@ -1,6 +1,100 @@
+<<<<<<<<< Temporary merge branch 1
+#hola
+class main:
+    def menu_principal(self):
+        print("""
+                **********
+                   MENÚ
+                **********
+                1) Libros
+                2) Autores
+                3) Biblioteca
+                4) Salir
+            """)
+        self.opciones()
+        
+    def opciones(self):
+        fin=False
+        while not (fin):
+            op = int(input("Ingrese el número de la opción deseada: "))
+            if op == 1:
+                self.menu_libros()
+            elif op == 2:
+                self.menu_autores()
+            elif op == 3:
+                self.menu_biblioteca()
+            elif op == 4:
+                exit()
+        
+    def menu_libros(self):
+        print("""
+                **********
+                  LIBROS
+                **********
+                1) Agregar libro
+                2) Editar libro
+                3) Mostrar libros
+                4) Salir
+            """)
+        fin = False
+        while not(fin):
+            op = int(input("Ingrese el número de la opción deseada: "))
+            if op == 1:
+                print("Agregando...")
+            elif op == 2:
+                print("Editando...")
+            elif op == 3:
+                print("Mostrando...")
+            elif op == 4:
+                self.menu_principal()
+                
+    def menu_autores(self):
+        print("""
+                **********
+                  AUTORES
+                **********
+                1) Agregar autor
+                2) Editar autor
+                3) Mostrar autor
+                4) Salir
+            """)
+        fin = False
+        while not(fin):
+            op = int(input("Ingrese el número de la opción deseada: "))
+            if op == 1:
+                print("Agregando...")
+            elif op == 2:
+                print("Editando...")
+            elif op == 3:
+                print("Mostrando...")
+            elif op == 4:
+                self.menu_principal()
+                
+    def menu_biblioteca(self):
+        print("""
+                ************
+                 BIBLIOTECA
+                ************
+                1) Mostrar
+                2) Salir
+            """)
+        fin = False
+        while not(fin):
+            op = int(input("Ingrese el número de la opción deseada: "))
+            if op == 1:
+                print("Mostrando")
+            elif op == 2:
+                self.menu_principal()
 
 
+menu = main()
+menu.menu_principal()
+
+#---------------clase de autores----------------
+class Autores:
+=========
 class Libros:
+>>>>>>>>> Temporary merge branch 2
     def __init__(self):
         self.autores = []
     
@@ -80,3 +174,55 @@ while True:
 
 #---------------- clase de libros---------
 
+class Libros:
+    def __init__(self):
+        self.libros = []
+
+    def agregar_libro(self):
+        titulo = input("Ingrese el nombre del libro: ")
+        anio = int(input("Ingrese el año de edición del libro: "))
+        autor = input("Ingrese el nombre del autor: ")
+        datos_libro = {'titulo': titulo, 'anio': anio, 'autor': autor}
+        self.libros.append(datos_libro)
+        print("Los datos fueron guardados correctamente.")
+
+    def mostrar_libro(self):
+        if len in (self.libros) == 0:
+            print("No se encontraron libros en la biblioteca.")
+        else:
+            buscar = input("Ingrese el nombre del libro que desea buscar: ")
+            for busca in self.libros:
+                if busca['titulo'] == buscar:
+                    print("Título: ", busca['titulo'])
+                    print("Año: ", busca['anio'])
+                    print("Autor: ", busca['autor'])
+
+    def editar_libro(self):
+        buscar_libro = input("Ingrese el título que desea modificar: ")
+        if len(self.libros) == 0:
+            print("No se encontraron libros registrados.")
+        else:
+            for titulo in self.libros:
+                if titulo['titulo'] == buscar_libro:
+                    print("Título: ", titulo['titulo'])
+                    print("Año: ", titulo['anio'])
+                    print("Autor: ", titulo['autor'])
+                    opcion = int(input("¿Que opción desea modificar?: 1 Nombre - 2 Autor - 3 Año de Edición"))
+                    if opcion == 1:
+                        nombre = input('Ingrese nuevo nombre:')
+                        self.libros[self.libros.index(titulo)]['titulo'] = nombre
+                    elif opcion == 2:
+                        autor = (input('Ingrese nuevo autor:'))
+                        self.libros[self.libros.index(titulo)]['autor'] = autor
+                    elif opcion == 3:
+                        anio = input('Ingrese nuevo año de edición:')
+                        self.libros[self.libros.index(titulo)]['anio'] = anio
+                    elif opcion == 4:
+                        condicion = True
+
+
+libros = Libros()
+libros.agregar_libro()
+libros.mostrar_libro()
+libros.editar_libro()
+libros.mostrar_libro()
