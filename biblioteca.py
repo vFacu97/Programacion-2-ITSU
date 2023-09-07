@@ -10,9 +10,9 @@ class Libros:
         self.libros.append(datos_libro)
         print("Los datos fueron guardados correctamente.")
 
-    def mostrar_libro(self):
+    def busca_libro(self):
         if len in (self.libros) == 0:
-            print("No se encontraron libros en la biblioteca.")
+            print("No hay libros registrados en la biblioteca.")
         else:
             buscar = input("Ingrese el nombre del libro que desea buscar: ")
             for busca in self.libros:
@@ -43,12 +43,4 @@ class Libros:
                         self.libros[self.libros.index(titulo)]['anio'] = anio
                     elif opcion == 4:
                         condicion = True
-
-
-libros = Libros()
-libros.agregar_libro()
-libros.mostrar_libro()
-libros.editar_libro()
-libros.mostrar_libro()
-#comentario de prueba
-
+#-----------Fin de la clase libros--------------
