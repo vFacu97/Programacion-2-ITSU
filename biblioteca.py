@@ -67,7 +67,8 @@ class Autores:
     def agregarautor(self):
         nombre = input("Ingresar el nombre del autor: ")
         apellido = input("Ingresar el apellido del autor: ")
-        self.autores.append({'Nombres': nombre, 'Apellido': apellido})
+        datos_autores = {'Nombres': nombre, 'Apellido': apellido} 
+        self.autores.append(datos_autores)
     
     def mostrarautor(self):
         for i in range(len(self.autores)):
@@ -113,7 +114,7 @@ class Autores:
 #-------------------Fin de la clase autores--------------
 
 #--------------inicio de menu-----------------------
-class Menu(Biblioteca,Autores):
+class Menu(Biblioteca, Autores):
     def menu_principal(self):
         print("""
                 **********
@@ -182,10 +183,16 @@ class Menu(Biblioteca,Autores):
             op = int(input("Ingrese el número de la opción deseada: "))
             if op == 1:
                 print("Agregando...")
+                self.agregarautor()
+                
             elif op == 2:
                 print("Editando...")
+                self.editar_autor()
+                self.menu_autores()
             elif op == 3:
                 print("Mostrando...")
+                self.mostrarautor()
+                self.menu_autores()
             elif op == 4:
                 self.menu_principal()
                 
@@ -202,6 +209,8 @@ class Menu(Biblioteca,Autores):
             op = int(input("Ingrese el número de la opción deseada: "))
             if op == 1:
                 print("Mostrando")
+                self.mostrar_libros()
+                self.menu_biblioteca()
             elif op == 2:
                 self.menu_principal()
 menu = Menu()
