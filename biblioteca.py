@@ -1,3 +1,4 @@
+#---------------comienzo de clase de autores----------------
 class Autores:
     def __init__(self):
         self.autores = []
@@ -75,3 +76,4 @@ while True:
         break
     else:
         print("Opción inválida. Por favor, seleccione una opción válida.")
+#-------------------Fin de la clase autores--------------
