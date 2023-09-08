@@ -1,4 +1,5 @@
 #---------------comienzo de clase de autores----------------
+#---------------comienzo de clase de autores---------------
 class Autores:
     def __init__(self):
         self.autores = []
@@ -6,22 +7,23 @@ class Autores:
     def agregarautor(self):
         nombre = input("Ingresar el nombre del autor: ")
         apellido = input("Ingresar el apellido del autor: ")
-        self.autores.append({'Nombres': nombre, 'Apellido': apellido})
+        datos_autores= {'nombre': nombre, 'apellido': apellido}
+        self.autores.append(datos_autores)
     
     def mostrarautor(self):
         for i in range(len(self.autores)):
             print("+-------------------------------------------------+")
             print("|                Datos del autor                  |")
             print("+-------------------------------------------------+")
-            print("| Nombre:   ","{:<36}".format(self.autores[i]['Nombres']),"|")
-            print("| Apellido: ", "{:<36}".format(self.autores[i]['Apellido']),"|")
+            print("| Nombre:   ","{:<36}".format(self.autores[i]['nombre']),"|")
+            print("| Apellido: ", "{:<36}".format(self.autores[i]['apellido']),"|")
             print("+-------------------------------------------------+")
 
 
     def buscar_autor(self, nombre_buscar):
-        for bautor in self.autores:
-            if bautor['Nombres'] or bautor['Apellido'] == nombre_buscar:
-                return bautor
+        for autor in self.autores:
+            if autor['nombre'] or autor['apellido'] == nombre_buscar:
+                return autor
         return None
     
     def editar_autor(self, autor_encontrado):
@@ -50,8 +52,8 @@ class Autores:
             print("seleccion incorrecta, intente nuevamente")
             
             
-    
-autor = Autores()
+autor=Autores()
+autor.agregarautor()
 
 while True:
     print("1. Agregar autor")
