@@ -22,31 +22,49 @@ class Libros:
                     print("Autor: ", busca['autor'])
 
     def editar_libro(self):
-        buscar_libro = input("Ingrese el título que desea modificar: ")
-        if len(self.libros) == 0:
-            print("No se encontraron libros registrados.")
-        else:
-            for titulo in self.libros:
-                if titulo['titulo'] == buscar_libro:
-                    print("Título: ", titulo['titulo'])
-                    print("Año: ", titulo['anio'])
-                    print("Autor: ", titulo['autor'])
-                    opcion = int(input("""¿Que opción desea modificar?:
-                                       1-Nombre
-                                       2-Autor
-                                       3-Año de Edición
-                                       Ingrese número de opcion: """))
-                    if opcion == 1:
-                        nombre = input('Ingrese nuevo nombre:')
-                        self.libros[self.libros.index(titulo)]['titulo'] = nombre
-                    elif opcion == 2:
-                        autor = (input('Ingrese nuevo autor:'))
-                        self.libros[self.libros.index(titulo)]['autor'] = autor
-                    elif opcion == 3:
-                        anio = input('Ingrese nuevo año de edición:')
-                        self.libros[self.libros.index(titulo)]['anio'] = anio
-                    elif opcion == 4:
-                        condicion = True
+        while True:
+            buscar_libro = input("Ingrese el título que desea modificar: ")
+            if len(self.libros) == 0:
+                print("No se encontraron libros registrados.")
+            else:
+                for titulo in self.libros:
+                    if titulo['titulo'] == buscar_libro:
+                        print("Título:", titulo['titulo'])
+                        print("Año:", titulo['anio'])
+                        print("Autor:", titulo['autor'])
+                        print("************************")
+                        print("""
+                            ¿Que opción desea modificar?:
+                            1-Nombre
+                            2-Autor
+                            3-Año de Edición
+                            """)    
+                        opcion = int(input("Ingrese número de opcion: "))
+                        if opcion == 1:
+                            nombre = input('Ingrese nuevo nombre:')
+                            self.libros[self.libros.index(titulo)]['titulo'] = nombre
+                            print("Cambios guardados correctamente")
+                            return #luego de guardar sale de la funcion 
+                        elif opcion == 2:
+                            autor = (input('Ingrese nuevo autor:'))
+                            self.libros[self.libros.index(titulo)]['autor'] = autor
+                            print("Cambios guardados correctamente")
+                            return #luego de guardar sale de la funcion                         
+                        elif opcion == 3:
+                            anio = input('Ingrese nuevo año de edición:')
+                            self.libros[self.libros.index(titulo)]['anio'] = anio
+                            print("Cambios guardados correctamente")
+                            return #luego de guardar sale de la funcion 
+                    else:
+                        print("El Titulo ingresado no está registrado. ¿Desea Intentar nuevamente?")
+                        print("""
+                                1-Si.    
+                                2-No. """)
+                        repetir=int(input("Ingrese un número de opción: "))
+                        if repetir == 1:
+                            break  # Salir del bucle for y volver a pedir el titulo del libro.
+                        elif repetir == 2:
+                            return # Salir de la función
 #-----------Fin de la clase libros--------------
 #-----------Comienzo clase biblioteca-----------
 class Biblioteca(Libros):
@@ -79,42 +97,66 @@ class Autores:
             print("| Apellido: ", "{:<36}".format(self.autores[i]['Apellido']),"|")
             print("+-------------------------------------------------+")
 
-
-    def buscar_autor(self, nombre_buscar):
-        for bautor in self.autores:
-            if bautor['Nombres'] or bautor['Apellido'] == nombre_buscar:
-                return bautor
-        return None
-    
-    def editar_autor(self, autor_encontrado):
-        print("1. Modificar nombre del autor")
-        print("2. Modificar apellido del autor")
-        print("3. Modificar ambos")
-        print("4. Salir")
-        seleccion = int(input("Seleccionar una opción: "))
-        if seleccion == 1:
-            nuevo_nombre = input("Ingrese el nuevo nombre: ")
-            autor_encontrado['Nombres'] = nuevo_nombre
-            print("Nombre modificado")
-        elif seleccion == 2:
-            nuevo_apellido = input("Ingrese el nuevo apellido: ")
-            autor_encontrado['Apellido'] = nuevo_apellido
-            print("Apellido modificado")
-        elif seleccion == 3:            
-            nuevo_nombre = input("Nuevo nombre: ")
-            nuevo_apellido = input("Nuevo apellido: ")
-            autor_encontrado['Nombres'] = nuevo_nombre
-            autor_encontrado['Apellido'] = nuevo_apellido
-            print("El nombre completo fue modificado.")
-        elif seleccion == 4:
-            print("")
-        else:
-            print("seleccion incorrecta, intente nuevamente")
-    
+   
+    def editar_autor(self):
+        while True:  # Usamos un bucle infinito para repetir la operación hasta que se encuentre un autor válido o se decida salir.
+            buscar_autor = input("Ingrese Nombre o Apellido del autor que desea modificar: ")
+            if len(self.autores) == 0:
+                print("No se encontraron autores registrados.")
+                return  # Si no hay autores registrados, salimos de la función.
+            else:
+                for iterador in self.autores:
+                    if iterador['Nombres'] == buscar_autor or iterador['Apellido'] == buscar_autor:
+                        print("Nombres:", iterador['Nombres'])
+                        print("Apellido:", iterador['Apellido'])
+                        
+                        print("************************")
+                        print("""
+                            ¿Qué desea modificar?:
+                            1-Nombres.
+                            2-Apellido.
+                            3-Ambos.
+                            4-Salir.
+                            """)    
+                        opcion = int(input("Ingrese número de opción: "))
+                        if opcion == 1:
+                            nombreN = input('Ingrese nuevo nombre: ')
+                            self.autores[self.autores.index(iterador)]['Nombres'] = nombreN
+                            print("Cambios guardados")
+                            return
+                        elif opcion == 2:
+                            Napellido = input('Ingrese nuevo Apellido:')
+                            self.autores[self.autores.index(iterador)]['Apellido'] = Napellido
+                            print("Cambios guardados")
+                            return
+                        elif opcion == 3:
+                            nombreN = input('Ingrese nuevo nombre: ')
+                            self.autores[self.autores.index(iterador)]['Nombres'] = nombreN
+                            print("\n")  # Separación "decorativa"
+                            Napellido = input('Ingrese nuevo Apellido:')
+                            self.autores[self.autores.index(iterador)]['Apellido'] = Napellido
+                            print("Cambios guardados")
+                            return
+                        elif opcion == 4:
+                            return  # Salir de la función si se elige esta opción.
+                    else:
+                        print("El Autor ingresado no está registrado. ¿Desea Intentar nuevamente?")
+                        print("""
+                                1-Si.    
+                                2-No. """)
+                        repetir=int(input("Ingrese un número de opción: "))
+                        if repetir == 1:
+                            break  # Salir del bucle for y volver a pedir el autor.
+                        elif repetir == 2:
+                            return # Salir de la función 
 #-------------------Fin de la clase autores--------------
 
 #--------------inicio de menu-----------------------
 class Menu(Biblioteca, Autores):
+    def __init__(self):#agregue ésta definición
+        
+        Biblioteca.__init__(self)
+        Autores.__init__(self)
     def menu_principal(self):
         print("""
                 **********
@@ -175,7 +217,7 @@ class Menu(Biblioteca, Autores):
                 **********
                 1) Agregar autor
                 2) Editar autor
-                3) Mostrar autor
+                3) Listar autores
                 4) Salir
             """)
         fin = False
@@ -184,7 +226,7 @@ class Menu(Biblioteca, Autores):
             if op == 1:
                 print("Agregando...")
                 self.agregarautor()
-                
+                self.menu_autores()
             elif op == 2:
                 print("Editando...")
                 self.editar_autor()
